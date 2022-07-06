@@ -1,0 +1,74 @@
+CREATE database GMOTO
+GO
+USE GMOTO
+GO
+Create Table OrderLine(
+Id				int identity PRIMARY KEY,
+OrderId			varchar(100),
+ProductId		varchar(100),
+Amount			varchar(100),
+NetUnitPrice	money,
+TaxRate			money
+);
+
+GO
+Create Table [Order](
+Id				int identity PRIMARY KEY,
+CustomerId		int,
+PriceTotal		money,
+DateOrdered		date,
+Street			varchar(100),
+Zip				decimal(5,0),
+City			varchar(100),
+FirstName		varchar(100),
+LastName		varchar(100),
+);
+
+GO
+Create Table Customer(
+Id				int identity PRIMARY KEY,
+Title			varchar(30),
+FirstName		varchar(100),
+LastName		varchar(100),
+Email			varchar(100),
+Street			varchar(100),
+Zip				decimal(5,0),
+City			varchar(100),
+PwHash			varchar(1000),
+Salt			varchar(1000),
+);
+
+GO
+Create Table Category(
+Id				int identity PRIMARY KEY,
+[Name]			varchar(100),
+TaxRate			money
+);
+
+GO
+Create Table Manufacturer(
+Id				int identity PRIMARY KEY,
+[Name]			varchar(100),
+);
+
+GO
+Create Table Subcategory(
+Id				int identity PRIMARY KEY,
+[Name]			varchar(100),
+CategoryId		int
+Constraint FK_Subcategory_Category foreign key (CategoryId) references Category(Id)
+);
+
+GO
+Create Table Product(
+Id				int identity PRIMARY KEY,
+ProductName		varchar(100),
+NetUnitPrice	money,
+ImagePath		varchar(100),
+Sizes			varchar(100),
+[Description]	varchar(4000),
+ManufacturerId	int,
+SubcategoryId	int,
+Constraint FK_Product_Manufacturer foreign key (ManufacturerId) references Manufacturer(Id),
+Constraint FK_Product_Subcategory foreign key (SubcategoryId) references Subcategory(Id)
+);
