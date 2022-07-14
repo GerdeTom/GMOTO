@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.NetUnitPrice)
             </td>
             <td>
-                <img src=@Html.DisplayFor(modelItem => item.ImagePath)>
+                @Html.Raw($@"<img width=""200"" src=""{Url.Content(item.ImagePath)}""></a>")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Sizes)
