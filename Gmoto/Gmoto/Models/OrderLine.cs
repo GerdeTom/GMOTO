@@ -8,10 +8,10 @@ namespace Gmoto.Models
     public partial class OrderLine
     {
         public int Id { get; set; }
-        public string OrderId { get; set; }
-        public string ProductId { get; set; }
-        public string Amount { get; set; }
+        public int? OrderId { get; set; }
+        public int? ProductId { get; set; }
+        public int? Amount { get; set; }
         public decimal? NetUnitPrice { get; set; }
-        public decimal? TaxRate { get; set; }
+        public int? TaxRate { get; set; }
     }
 }

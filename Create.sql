@@ -4,11 +4,11 @@ USE GMOTO
 GO
 Create Table OrderLine(
 Id				int identity PRIMARY KEY,
-OrderId			varchar(100),
-ProductId		varchar(100),
-Amount			varchar(100),
+OrderId			int,
+ProductId		int,
+Amount			int,
 NetUnitPrice	money,
-TaxRate			money
+TaxRate			int,
 );
 
 GO
@@ -18,7 +18,7 @@ CustomerId		int,
 PriceTotal		money,
 DateOrdered		date,
 Street			varchar(100),
-Zip				decimal(5,0),
+Zip				int,
 City			varchar(100),
 FirstName		varchar(100),
 LastName		varchar(100),
@@ -32,17 +32,17 @@ FirstName		varchar(100),
 LastName		varchar(100),
 Email			varchar(100),
 Street			varchar(100),
-Zip				decimal(5,0),
+Zip				int,
 City			varchar(100),
-PwHash			varchar(1000),
-Salt			varchar(1000),
+PwHash			varbinary(256),
+Salt			varbinary(256),
 );
 
 GO
 Create Table Category(
 Id				int identity PRIMARY KEY,
 [Name]			varchar(100),
-TaxRate			money
+TaxRate			int,
 );
 
 GO
@@ -55,7 +55,7 @@ GO
 Create Table Subcategory(
 Id				int identity PRIMARY KEY,
 [Name]			varchar(100),
-CategoryId		int
+CategoryId		int,
 Constraint FK_Subcategory_Category foreign key (CategoryId) references Category(Id)
 );
 

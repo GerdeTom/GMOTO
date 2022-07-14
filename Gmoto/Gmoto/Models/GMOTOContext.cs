@@ -20,6 +20,7 @@ namespace Gmoto.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Manufacturer> Manufacturers { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderLine> OrderLines { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Subcategory> Subcategories { get; set; }
@@ -29,7 +30,7 @@ namespace Gmoto.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server= PC8D9DDC063323;Database=GMOTO;Trusted_Connection=False;User Id=sa;Password=Admin2019$;");
+                optionsBuilder.UseSqlServer("Server=PC8D9DDC063323;Database=GMOTO; Persist Security Info=True; User ID=sa;Password=Admin2019$;");
             }
         }
 
@@ -44,8 +45,6 @@ namespace Gmoto.Models
                 entity.Property(e => e.Name)
                     .HasMaxLength(100)
                     .IsUnicode(false);
-
-                entity.Property(e => e.TaxRate).HasColumnType("money");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -68,13 +67,9 @@ namespace Gmoto.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PwHash)
-                    .HasMaxLength(1000)
-                    .IsUnicode(false);
+                entity.Property(e => e.PwHash).HasMaxLength(256);
 
-                entity.Property(e => e.Salt)
-                    .HasMaxLength(1000)
-                    .IsUnicode(false);
+                entity.Property(e => e.Salt).HasMaxLength(256);
 
                 entity.Property(e => e.Street)
                     .HasMaxLength(100)
@@ -83,8 +78,6 @@ namespace Gmoto.Models
                 entity.Property(e => e.Title)
                     .HasMaxLength(30)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Zip).HasColumnType("decimal(5, 0)");
             });
 
             modelBuilder.Entity<Manufacturer>(entity =>
@@ -96,25 +89,36 @@ namespace Gmoto.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.ToTable("Order");
+
+                entity.Property(e => e.City)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DateOrdered).HasColumnType("date");
+
+                entity.Property(e => e.FirstName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PriceTotal).HasColumnType("money");
+
+                entity.Property(e => e.Street)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<OrderLine>(entity =>
             {
                 entity.ToTable("OrderLine");
 
-                entity.Property(e => e.Amount)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.NetUnitPrice).HasColumnType("money");
-
-                entity.Property(e => e.OrderId)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ProductId)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TaxRate).HasColumnType("money");
             });
 
             modelBuilder.Entity<Product>(entity =>

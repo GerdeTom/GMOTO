@@ -14,7 +14,7 @@ namespace Gmoto.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal? TaxRate { get; set; }
+        public int? TaxRate { get; set; }
 
         public virtual ICollection<Subcategory> Subcategories { get; set; }
     }
