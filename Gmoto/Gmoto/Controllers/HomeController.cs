@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Rotativa;
 
 namespace Gmoto.Controllers
 {

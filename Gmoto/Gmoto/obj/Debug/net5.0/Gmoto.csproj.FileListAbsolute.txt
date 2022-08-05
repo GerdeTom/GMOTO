@@ -302,3 +302,10 @@ F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\P
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Rotativa.AspNetCore.dll
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Gmoto.MvcApplicationPartsAssemblyInfo.cs
