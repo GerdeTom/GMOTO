@@ -44,7 +44,7 @@ namespace Gmoto
 
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -72,5 +72,6 @@ namespace Gmoto
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }

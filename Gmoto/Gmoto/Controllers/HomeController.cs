@@ -30,12 +30,16 @@ namespace Gmoto.Controllers
         {
             return View();
         }
-
-        [Authorize]
-        public IActionResult Privacy()
+                
+        public IActionResult Impressum()
         {
             return View();
         }
+        public IActionResult AGB()
+        {
+            return View();
+        }
+
 
         [HttpGet]
         public IActionResult Register()
@@ -63,12 +67,13 @@ namespace Gmoto.Controllers
             //In der Datenbank prüfen ob es den Benutzer gibt und ob das Passwort stimmt
             var user = await _accountService.CanUserLogInAsync(email, password);
 
-            if (user is null) return RedirectToAction(nameof(Login));
+            if (user is null) 
+                return RedirectToAction(nameof(Login));
 
             //Benutzer darf sich anmelden, dh. wir müssen dem Benutzer ein Cookie mitgeben, dass das bestätigt
             await SignUserInAsync(email, user.Id);
 
-            return RedirectToAction("Privacy");
+            return RedirectToAction("Login");
         }
 
         [HttpGet]

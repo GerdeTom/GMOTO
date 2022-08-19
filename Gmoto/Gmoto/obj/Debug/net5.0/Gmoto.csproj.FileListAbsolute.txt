@@ -276,7 +276,6 @@ F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Gmoto.TagHelp
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Gmoto.TagHelpers.output.cache
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Gmoto.RazorCoreGenerate.cache
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -309,3 +308,7 @@ F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Microsoft.Ext
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\bin\Debug\net5.0\Rotativa.AspNetCore.dll
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Gmoto.MvcApplicationPartsAssemblyInfo.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\AGB.cshtml.g.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Impressum.cshtml.g.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\ShoppingCart\Index.cshtml.g.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\ShoppingCart\AddDeleteProduct.cshtml.g.cs
