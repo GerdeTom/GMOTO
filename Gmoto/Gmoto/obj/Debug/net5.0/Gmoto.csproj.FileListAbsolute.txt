@@ -311,4 +311,4 @@ F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Gmoto.MvcAppl
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\AGB.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Impressum.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\ShoppingCart\Index.cshtml.g.cs
-F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\ShoppingCart\AddDeleteProduct.cshtml.g.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\ShoppingCart\OrderLine.cshtml.g.cs

@@ -1,0 +1,29 @@
+﻿@model Gmoto.Models.OrderLine
+
+@{
+    ViewData["Title"] = "Deine Bestellung";
+}
+
+<h1>Deine Bestellung</h1>
+
+<a class="btn btn-primary" asp-controller="" asp-action="">Bestellung abschicken</a>
+
+<form asp-controller="ShoppingCart" asp-action="CreateEditOrderLine">
+
+    <div class="card">
+        <div class="card-header">
+            <h1>Deine Bestellung</h1>
+            <a class="btn btn-primary" asp-controller="Products" asp-action="Index">Produkt hinzufügen</a>
+        </div>
+
+        <div class="card-body">
+            <input asp-for="ProductId" />
+            
+        </div>
+
+        <div class="card-footer">
+            <button class="btn btn-primary" type="submit">Bestellung absenden</button>
+        </div>
+    </div>
+
+</form>

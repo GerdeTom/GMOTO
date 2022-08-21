@@ -4,36 +4,39 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    @*<a asp-action="Create">Create New</a>*@
 </p>
-<table class="table">
-    <thead>
+<table id="productTable" class="table">
+    <thead class="thead-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                @Html.DisplayName("Bezeichnung")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NetUnitPrice)
+                @Html.DisplayName("Preis")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
+                @Html.DisplayName("")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Sizes)
+                @Html.DisplayName("Hersteller")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayName("Kategorie")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
+                @Html.DisplayName("Aktionen")
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Subcategory)
-            </th>
-            <th></th>
+
+            @*<th>
+            @Html.DisplayNameFor(model => model.Sizes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+        <th></th>*@
         </tr>
     </thead>
     <tbody>
@@ -49,23 +52,37 @@
                 @Html.Raw($@"<img width=""200"" src=""{Url.Content(item.ImagePath)}""></a>")
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subcategory.Name)
+            </td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Sizes)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
-            </td>
+            </td>*@
+
             <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subcategory.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                <a asp-controller="ShoppingCart" asp-action="AddProductToCart" asp-route-id="@item.Id">Warenkorb hinzufügen</a>
+                }
+                @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            $('#productTable').DataTable();
+        });
+    </script>
+}

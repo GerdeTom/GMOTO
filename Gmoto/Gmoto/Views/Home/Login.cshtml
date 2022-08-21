@@ -2,8 +2,23 @@
     ViewData["Title"] = "Login";
 }
 
-<form method="post" action="/Home/Login">
-    <input name="Email" placeholder="Email" />
-    <input name="Password" placeholder="Password" />
-    <button type="submit">Anmelden</button>
-</form>
+<div class="container">
+    <h3>Anmelden</h3>
+    <form method="post" action="/Home/Login">
+
+        <div class="form-group">
+            <label for="email">E-Mail:</label>
+            <input type="email" class="form-control" id="email" placeholder="E-Mail" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="passwort">Passwort:</label>
+            <input type="password" class="form-control" id="password" placeholder="Passwort" name="password">
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" name="remember"> Merken</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Anmelden</button>
+    </form>
+</div>

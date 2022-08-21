@@ -1,4 +1,68 @@
-﻿<h1>Dein Warenkorb</h1>
+﻿@model IEnumerable<Gmoto.Models.Product>
+
+@{
+    ViewData["Title"] = "Dein Warenkorb";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <a class="btn btn-dark" asp-controller="Products" asp-action="Index">Neues Produkt hinzufügen</a>
+    <hr />
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayName("")
+                </th>
+                <th>
+                    @Html.DisplayName("Bezeichnung")
+                </th>
+                <th>
+                    @Html.DisplayName("Hersteller")
+                </th>
+                <th>
+                    @Html.DisplayName("Preis")
+                </th>
+                <th>
+                    @Html.DisplayName("Aktionen")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var s = ViewContext.HttpContext.Request.Cookies["product_id"];
+                int itemid = Int32.Parse(s);
+                if (item.Id == itemid)
+                {
+
+            <tr>
+                <td>
+                    @Html.Raw($@"<img width=""200"" src=""{Url.Content(item.ImagePath)}""></a>")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NetUnitPrice)
+                </td>
+                <td>
+                    <a asp-route-id="@itemid" asp-controller="ShoppingCart" asp-action="DeleteProductAtCart" class="btn btn-warning">Löschen</a>
+                </td>
+
+            </tr>
+                    
+                }
+            }
+        </tbody>
+    </table>
+}
+else
+{
+
+}
 
 
-<a asp-controller="Products" asp-action="Index">Produkt hinzufügen</a>
