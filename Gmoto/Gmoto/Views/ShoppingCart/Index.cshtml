@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Gmoto.Models.Product>
+﻿@model  IEnumerable<Gmoto.Models.OrderLine>
 
 @{
     ViewData["Title"] = "Dein Warenkorb";
@@ -9,10 +9,13 @@
     <a class="btn btn-dark" asp-controller="Products" asp-action="Index">Neues Produkt hinzufügen</a>
     <hr />
     <table class="table table-bordered table-striped table-hover">
-        <thead class="thead-dark">
+        <thead class="thead-dark" >
             <tr>
                 <th>
                     @Html.DisplayName("")
+                </th>
+                <th>
+                    @Html.DisplayName("Produktnummer")
                 </th>
                 <th>
                     @Html.DisplayName("Bezeichnung")
@@ -24,6 +27,12 @@
                     @Html.DisplayName("Preis")
                 </th>
                 <th>
+                    @Html.DisplayName("Menge")
+                </th>
+                <th>
+                    @Html.DisplayName("Gesamtpreis")
+                </th>
+                <th>
                     @Html.DisplayName("Aktionen")
                 </th>
             </tr>
@@ -31,26 +40,34 @@
         <tbody>
             @foreach (var item in Model)
             {
-                var s = ViewContext.HttpContext.Request.Cookies["product_id"];
-                int itemid = Int32.Parse(s);
-                if (item.Id == itemid)
+                //var s = ViewContext.HttpContext.Request.Cookies["product_id"];
+                //int itemid = Int32.Parse(s);
+                //if (item.Id == itemid)
                 {
-
             <tr>
                 <td>
-                    @Html.Raw($@"<img width=""200"" src=""{Url.Content(item.ImagePath)}""></a>")
+                    @Html.Raw($@"<img width=""200"" src=""{Url.Content(item.Product.ImagePath)}""></a>")
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
+                    @Html.DisplayFor(modelItem => item.ProductId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Manufacturer.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NetUnitPrice)
                 </td>
                 <td>
-                    <a asp-route-id="@itemid" asp-controller="ShoppingCart" asp-action="DeleteProductAtCart" class="btn btn-warning">Löschen</a>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.Raw(Math.Round((item.NetUnitPrice * item.Amount * ((item.TaxRate / 100) + 1)).Value,2))
+                </td>
+                <td>
+                    <a asp-route-id="@item.Id" asp-controller="ShoppingCart" asp-action="DeleteProductAtCart" class="btn btn-warning">Löschen</a>
                 </td>
 
             </tr>

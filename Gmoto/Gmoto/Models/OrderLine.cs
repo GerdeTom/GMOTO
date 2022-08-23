@@ -13,5 +13,8 @@ namespace Gmoto.Models
         public int? Amount { get; set; }
         public decimal? NetUnitPrice { get; set; }
         public int? TaxRate { get; set; }
+
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Gmoto.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Rotativa.AspNetCore;
 
 namespace Gmoto
 {
@@ -27,6 +28,7 @@ namespace Gmoto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddScoped<AccountService>();
 
             services.AddDbContext<GMOTOContext>();
@@ -38,7 +40,7 @@ namespace Gmoto
                 .AddCookie(opts =>
                 {
                     opts.LoginPath = "/Home/Login";
-                    opts.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+                    opts.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                     opts.SlidingExpiration = true;
                 });
 
@@ -46,6 +48,8 @@ namespace Gmoto
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
+            RotativaConfiguration.Setup(env.WebRootPath);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

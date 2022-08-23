@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Gmoto.Models;
+using Gmoto.Services;
 
 #nullable disable
 
@@ -112,6 +114,11 @@ namespace Gmoto.Models
                 entity.Property(e => e.Street)
                     .HasMaxLength(100)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Order_Customer");
             });
 
             modelBuilder.Entity<OrderLine>(entity =>
@@ -119,6 +126,16 @@ namespace Gmoto.Models
                 entity.ToTable("OrderLine");
 
                 entity.Property(e => e.NetUnitPrice).HasColumnType("money");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderLines)
+                    .HasForeignKey(d => d.OrderId)
+                    .HasConstraintName("FK_OrderLine_Order");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.OrderLines)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_OrderLine_Product");
             });
 
             modelBuilder.Entity<Product>(entity =>

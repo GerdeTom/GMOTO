@@ -7,47 +7,47 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Product</h4>
+    <h4>Produkt</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
+            @Html.DisplayName("Bezeichnung")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProductName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NetUnitPrice)
+            @Html.DisplayName("Preis")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NetUnitPrice)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImagePath)
+            @Html.DisplayName(" ")
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImagePath)
+        <dd class="col-sm-10">
+            @Html.Raw($@"<img width=""200"" src=""{Url.Content(Model.ImagePath)}""></a>")
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sizes)
+            @Html.DisplayName("Größen")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Sizes)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayName("Beschreibung")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
+            @Html.DisplayName("Hersteller")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Manufacturer.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Subcategory)
+            @Html.DisplayName("Kategorie")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Subcategory.Name)

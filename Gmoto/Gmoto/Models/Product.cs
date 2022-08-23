@@ -7,6 +7,11 @@ namespace Gmoto.Models
 {
     public partial class Product
     {
+        public Product()
+        {
+            OrderLines = new HashSet<OrderLine>();
+        }
+
         public int Id { get; set; }
         public string ProductName { get; set; }
         public decimal? NetUnitPrice { get; set; }
@@ -18,5 +23,6 @@ namespace Gmoto.Models
 
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual Subcategory Subcategory { get; set; }
+        public virtual ICollection<OrderLine> OrderLines { get; set; }
     }
 }
