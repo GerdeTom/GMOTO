@@ -30,21 +30,33 @@
                                 <a class="nav-link text-dark" asp-controller="ShoppingCart" asp-action="Index">Warenkorb</a>
                             </li>
 
+                            @*<li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Rechnung">Rechnung Seite</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PdfRechnung">Rechnung Pdf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SendTestMail">Send Test Email</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RechnungEmail">Send PDF Email</a>*@
+
                             <li class="nav-item ">
                                 <a class="nav-link text-dark" asp-controller="Home" asp-action="Logout">Ausloggen</a>
                             </li>
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Anmelden</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Home" asp-action="Register">Registrieren</a>
                             </li>
-                        }
+                            }
 
-                    </ul>
+                        </ul>
                 </div>
             </div>
         </nav>

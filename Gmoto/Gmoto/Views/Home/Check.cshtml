@@ -1,0 +1,69 @@
+﻿@model Gmoto.ViewModels.CheckDetails
+
+@{
+    Layout = "_CheckLayout";
+}
+
+<div class="text-left">
+    <p>Max Mustermann</p>
+    <p>Musterstraße 123</p>
+    <p>1234 Wien</p>
+    <p>Österreich</p>
+</div>
+<div class="text-right">
+    <p>Fakeshop</p>
+    <p>Musterstraße 789</p>
+    <p>4567 Wien</p>
+    <p>Österreich</p>
+</div>
+
+<h3>Rechnung Nr. @Model.CheckNumber</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Produkt
+            </th>
+            <th>
+                Anzahl
+            </th>
+            <th>
+                Stückpreis
+            </th>
+            <th>
+                Gesamtpreis
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produkt in Model.Products)
+        {
+            <tr>
+                <td>
+                    @produkt.ProductName
+                </td>
+                <td>
+                    @produkt.Amount
+                </td>
+                <td>
+                    @produkt.Price
+                </td>
+                <td>
+                    @produkt.LinePrice
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Gesamt
+            </td>
+            <td>
+                @Model.PriceTotal €
+            </td>
+        </tr>
+    </tbody>
+</table>

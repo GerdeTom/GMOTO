@@ -312,3 +312,5 @@ F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\H
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Impressum.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\ShoppingCart\Index.cshtml.g.cs
 F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\ShoppingCart\OrderLine.cshtml.g.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Home\Check.cshtml.g.cs
+F:\VisualStudio2019\LAP Projekt\GMOTO\Gmoto\Gmoto\obj\Debug\net5.0\Razor\Views\Shared\_CheckLayout.cshtml.g.cs

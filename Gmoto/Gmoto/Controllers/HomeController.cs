@@ -12,6 +12,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Rotativa;
+using Rotativa.AspNetCore;
 
 namespace Gmoto.Controllers
 {
@@ -73,14 +74,14 @@ namespace Gmoto.Controllers
             //Benutzer darf sich anmelden, dh. wir müssen dem Benutzer ein Cookie mitgeben, dass das bestätigt
             await SignUserInAsync(email, user.Id);
 
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Login));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -105,6 +106,26 @@ namespace Gmoto.Controllers
             //Und dem Benutzer ein Cookie mitgeliedert
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+        }
+
+        public IActionResult Rechnung()
+        {
+            //Code um das Viewmodel zu erstellen für die Rechnungs-View 
+            var checkout = MyFakeService.GetRechnung(1234);
+
+            return View(checkout);
+        }
+
+        public IActionResult PdfRechnung()
+        {
+            //Der Code der das Viewmodel für die Rechnungs-View erstellt muss hier dupliziert werden
+            var checkout = MyFakeService.GetRechnung(1234);
+
+
+            //Das Viewmodel wird dann hier als zweiter parameter mitgegeben
+            var viewPdf = new ViewAsPdf("Rechnung", checkout, null);
+
+            return viewPdf;
         }
     }
 }
